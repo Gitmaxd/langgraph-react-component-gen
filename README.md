@@ -1,4 +1,4 @@
-# LangGraph Engineer
+# LangGraph Next.js/React Component Generator
 
 [Try out the deployed version](https://smith.langchain.com/studio/thread?baseUrl=https://langgraph-engineer-23dacb3822e3589d80ff57de9ee94e1c.default.us.langgraph.app)
 
