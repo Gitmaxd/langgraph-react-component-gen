@@ -1,5 +1,5 @@
-from langgraph_engineer.model import _get_model
-from langgraph_engineer.state import AgentState
+from react_component_gen.model import _get_model
+from react_component_gen.state import AgentState
 from langchain_core.messages import AIMessage
 from langchain_core.pydantic_v1 import BaseModel
 

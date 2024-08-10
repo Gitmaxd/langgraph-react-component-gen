@@ -5,11 +5,11 @@
     "."
   ],
   "graphs": {
-    "engineer": "./src/langgraph_engineer/agent.py:graph"
+    "engineer": "./src/react_component_gen/agent.py:graph"
   },
   "env": [
-    "ANTHROPIC_API_KEY",
     "TAVILY_API_KEY",
-    "OPENAI_API_KEY"
+    "OPENAI_API_KEY",
+    "ANTHROPIC_API_KEY"
   ]
 }

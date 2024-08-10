@@ -1,5 +1,5 @@
-from langgraph_engineer.model import _get_model
-from langgraph_engineer.state import AgentState
+from react_component_gen.model import _get_model
+from react_component_gen.state import AgentState
 from typing import TypedDict
 from langchain_core.messages import RemoveMessage
 

@@ -1,5 +1,5 @@
 import re
-from langgraph_engineer.state import AgentState
+from react_component_gen.state import AgentState
 
 
 def extract_react_code(text):

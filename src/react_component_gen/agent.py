@@ -3,12 +3,12 @@ from typing import Literal
 from langgraph.graph import StateGraph, END, MessagesState
 from langchain_core.messages import AIMessage
 
-from langgraph_engineer.check import check
-from langgraph_engineer.critique import critique
-from langgraph_engineer.documentation import documentation
-from langgraph_engineer.draft import draft_answer
-from langgraph_engineer.gather_react_requirements import gather_react_requirements
-from langgraph_engineer.state import AgentState, OutputState, GraphConfig
+from react_component_gen.check import check
+from react_component_gen.critique import critique
+from react_component_gen.documentation import documentation
+from react_component_gen.draft import draft_answer
+from react_component_gen.gather_react_requirements import gather_react_requirements
+from react_component_gen.state import AgentState, OutputState, GraphConfig
 
 def route_critique(state: AgentState) -> Literal["draft_answer", "documentation"]:
     if state['accepted']:

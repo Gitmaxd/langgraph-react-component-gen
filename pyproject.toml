@@ -1,5 +1,5 @@
 [project]
-name = "langgraph_eng_package"
+name = "react_component_gen_package"
 version = "0.0.1"
 dependencies = [
   "langgraph",

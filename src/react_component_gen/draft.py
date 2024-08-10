@@ -1,5 +1,5 @@
-from langgraph_engineer.model import _get_model
-from langgraph_engineer.state import AgentState
+from react_component_gen.model import _get_model
+from react_component_gen.state import AgentState
 
 file_contents = """
 ### 1. **Basic Render Test**
