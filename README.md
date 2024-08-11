@@ -1,4 +1,4 @@
-# LangGraph React Component Generator
+# LangGraph 🦜🕸️ React Component Generator
 
 ![LangGraph React Component Generator](static/langchain-nextjs-component-gen.png)
 
@@ -6,7 +6,7 @@
 
 LangGraph React Component Generator is an open-source project that demonstrates the integration of LangChain's LangGraph with LangGraph Studio, LangGraph Cloud, and LangSmith. This project serves as an educational example for developers interested in leveraging these technologies to create intelligent agents for code generation.
 
-This project is inspired by and builds upon the original [LangGraph Engineer](https://github.com/hwchase17/langgraph-engineer) by Harrison Chase (@hwchase17).
+This project is inspired by and builds upon the original [LangGraph Engineer](https://github.com/hwchase17/langgraph-engineer) by Harrison Chase [@hwchase17](https://x.com/hwchase17).
 
 ## Features
 
@@ -42,7 +42,7 @@ The LangGraph React Component Generator uses a state graph to manage the flow of
 
 ### Prerequisites
 
-- Python 3.7+
+- Python 3.9+
 - LangChain
 - LangGraph
 
@@ -50,13 +50,13 @@ The LangGraph React Component Generator uses a state graph to manage the flow of
 
 1. Clone the repository:
    ```
-   git clone https://github.com/YourUsername/langgraph-react-component-gen.git
+   git clone https://github.com/GitMaxd/langgraph-react-component-gen.git
    cd langgraph-react-component-gen
    ```
 
-2. Install dependencies:
+2. Copy .env.example to .env and fill in the OpenAI and Anthropic API Keys
    ```
-   pip install -r requirements.txt
+   cp .env.example .env
    ```
 
 ### Usage
@@ -79,9 +79,9 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
-- Harrison Chase (@hwchase17) for the original LangGraph Engineer project
-- The LangChain team for LangGraph, LangGraph Studio, and LangSmith
+- Harrison Chase ([@hwchase17](https://x.com/hwchase17)) for the original LangGraph Engineer project
+- The entire [LangChain](https://x.com/langChainAI) team for LangGraph, LangGraph Studio, and LangSmith and two years of awesome!
 
 ## Contact
 
-Created by [@GitMaxd](https://twitter.com/GitMaxd) - feel free to contact me!
+Created by [@GitMaxd](https://twitter.com/GitMaxd) - feel free to contact me, [DM's open!](https://dm.new/api) 
