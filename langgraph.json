@@ -5,7 +5,7 @@
     "."
   ],
   "graphs": {
-    "engineer": "./src/react_component_gen/agent.py:graph"
+    "React Developer": "./src/react_component_gen/agent.py:graph"
   },
   "env": [
     "TAVILY_API_KEY",
