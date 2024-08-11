@@ -6,45 +6,45 @@ from langchain_core.messages import AIMessage
 from react_component_gen.check import check
 from react_component_gen.critique import critique
 from react_component_gen.documentation import documentation
-from react_component_gen.draft import draft_answer
-from react_component_gen.gather_react_requirements import gather_react_requirements
+from react_component_gen.draft import create_draft_component
+from react_component_gen.gather_component_requirements import gather_component_requirements
 from react_component_gen.state import AgentState, OutputState, GraphConfig
 
-def route_critique(state: AgentState) -> Literal["draft_answer", "documentation"]:
+def route_critique(state: AgentState) -> Literal["create_draft_component", "documentation"]:
     if state['accepted']:
         return "documentation"
     else:
-        return "draft_answer"
+        return "create_draft_component"
 
-def route_check(state: AgentState) -> Literal["critique", "draft_answer"]:
+def route_check(state: AgentState) -> Literal["critique", "create_draft_component"]:
     if isinstance(state['messages'][-1], AIMessage):
         return "critique"
     else:
-        return "draft_answer"
+        return "create_draft_component"
 
-def route_start(state: AgentState) -> Literal["draft_answer", "gather_react_requirements"]:
+def route_start(state: AgentState) -> Literal["create_draft_component", "gather_component_requirements"]:
     if state.get('requirements'):
-        return "draft_answer"
+        return "create_draft_component"
     else:
-        return "gather_react_requirements"
+        return "gather_component_requirements"
 
-def route_gather(state: AgentState) -> Literal["draft_answer", END]:
+def route_gather(state: AgentState) -> Literal["create_draft_component", END]:
     if state.get('requirements'):
-        return "draft_answer"
+        return "create_draft_component"
     else:
         return END
 
 # Define a new graph
 workflow = StateGraph(AgentState, input=MessagesState, output=OutputState, config_schema=GraphConfig)
-workflow.add_node(draft_answer)
-workflow.add_node(gather_react_requirements)
+workflow.add_node(create_draft_component)
+workflow.add_node(gather_component_requirements)
 workflow.add_node(critique)
 workflow.add_node(check)
 workflow.add_node(documentation)
 
 workflow.set_conditional_entry_point(route_start)
-workflow.add_conditional_edges("gather_react_requirements", route_gather)
-workflow.add_edge("draft_answer", "check")
+workflow.add_conditional_edges("gather_component_requirements", route_gather)
+workflow.add_edge("create_draft_component", "check")
 workflow.add_conditional_edges("check", route_check)
 workflow.add_conditional_edges("critique", route_critique)
 

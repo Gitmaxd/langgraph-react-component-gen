@@ -105,7 +105,7 @@ Generate your code using markdown javascript syntax, like this:
 
 Remember to produce only one code block containing the entire component!"""
 
-def draft_answer(state: AgentState, config):
+def create_draft_component(state: AgentState, config):
     file_contents = """
     [Your multi-line string with React test examples will go here]
     """

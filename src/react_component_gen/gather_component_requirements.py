@@ -3,7 +3,7 @@ from react_component_gen.state import AgentState
 from typing import TypedDict
 from langchain_core.messages import RemoveMessage
 
-gather_react_prompt = """
+gather_component_prompt = """
     You are an expert React developer tasked with gathering requirements for creating React components. 
     Your role is to extract clear, concise, and comprehensive information about the desired component from the user.
 
@@ -31,9 +31,9 @@ class DefineComponent(TypedDict):
     requirements: str
 
 
-def gather_react_requirements(state: AgentState, config):
+def gather_component_requirements(state: AgentState, config):
     messages = [
-        {"role": "system", "content": gather_react_prompt}
+        {"role": "system", "content": gather_component_prompt}
     ] + state['messages']
     model = _get_model(config, "openai", "gather_model").bind_tools([DefineComponent])
     response = model.invoke(messages)

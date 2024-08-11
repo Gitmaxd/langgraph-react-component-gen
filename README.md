@@ -1,31 +1,87 @@
-# LangGraph Next.js/React Component Generator
+# LangGraph React Component Generator
 
-[Try out the deployed version](https://smith.langchain.com/studio/thread?baseUrl=https://langgraph-engineer-23dacb3822e3589d80ff57de9ee94e1c.default.us.langgraph.app)
+![LangGraph React Component Generator](static/langchain-nextjs-component-gen.png)
 
-![](static/langgraph-react-component-gen.png)
+## Overview
 
-This is an alpha version of an agent that can help bootstrap [LangGraph](https://github.com/langchain-ai/langgraph) applications. It will focus on creating the correct nodes and edges, but will not attempt to write the logic to fill in the nodes and edges - rather will leave that for you.
+LangGraph React Component Generator is an open-source project that demonstrates the integration of LangChain's LangGraph with LangGraph Studio, LangGraph Cloud, and LangSmith. This project serves as an educational example for developers interested in leveraging these technologies to create intelligent agents for code generation.
 
-## Agent Details
+This project is inspired by and builds upon the original [LangGraph Engineer](https://github.com/hwchase17/langgraph-engineer) by Harrison Chase (@hwchase17).
 
-The agent consists of a few steps:
+## Features
 
-1. Converse with the user to gather all requirements
-2. Write a draft
-3. Run programatic checks against the generated draft (right now just checking that the response has the right format). If it fails, then go back to step 2. If it passes, then continue to step 4.
-4. Run an LLM critique against the generated draft. If it fails, go back to step 2. If it passes, the continue to the end.
+- Generates React components based on user requirements
+- Utilizes a multi-step process for component creation:
+  1. Gathering component requirements
+  2. Drafting the component
+  3. Performing programmatic checks
+  4. Critiquing the generated code
+  5. Creating documentation
+- Integrates with various LangChain tools and services
 
-## How to run
+## How It Works
 
-[Try out the deployed version](https://smith.langchain.com/studio/thread?baseUrl=https://langgraph-engineer-23dacb3822e3589d80ff57de9ee94e1c.default.us.langgraph.app)
+The LangGraph React Component Generator uses a state graph to manage the flow of component creation. Here's a brief overview of the main steps:
 
-You can run this code locally with [LangGraph Studio](https://github.com/langchain-ai/langgraph-studio)
+1. **Gather Requirements**: The agent interacts with the user to collect detailed requirements for the React component.
+2. **Create Draft**: Based on the gathered requirements, a draft of the React component is generated.
+3. **Check**: The draft undergoes programmatic checks to ensure it meets basic React component structure and syntax.
+4. **Critique**: An AI model reviews the component, focusing on best practices, performance, and adherence to React and Next.js conventions.
+5. **Documentation**: If the component passes all checks, comprehensive documentation is generated.
 
-You can deploy the code yourself to [LangGraph Cloud](https://langchain-ai.github.io/langgraph/cloud/#overview)
+## Key Components
 
+- `agent.py`: Defines the main workflow and state graph for the component generation process.
+- `gather_component_requirements.py`: Handles the interaction for collecting component requirements.
+- `draft.py`: Generates the initial draft of the React component.
+- `check.py`: Performs basic syntax and structure checks on the generated component.
+- `critique.py`: Provides an AI-powered review of the component.
+- `documentation.py`: Creates detailed documentation for the final component.
 
-## Future direction:
+## Getting Started
 
- - Run more programatic checks (linting, checking imports)
- - Try to run the generated code
- - Attempt to generate code for the nodes and edges
+### Prerequisites
+
+- Python 3.7+
+- LangChain
+- LangGraph
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/YourUsername/langgraph-react-component-gen.git
+   cd langgraph-react-component-gen
+   ```
+
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+### Usage
+
+You can run this project using different methods:
+
+1. **LangGraph Studio**: 
+   Use [LangGraph Studio](https://github.com/langchain-ai/langgraph-studio) for local development and testing.
+
+2. **LangGraph Cloud**: 
+   Deploy the project to [LangGraph Cloud](https://langchain-ai.github.io/langgraph/cloud/#overview) for scalable execution.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- Harrison Chase (@hwchase17) for the original LangGraph Engineer project
+- The LangChain team for LangGraph, LangGraph Studio, and LangSmith
+
+## Contact
+
+Created by [@GitMaxd](https://twitter.com/GitMaxd) - feel free to contact me!
