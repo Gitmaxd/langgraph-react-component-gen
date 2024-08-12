@@ -2,41 +2,30 @@ from react_component_gen.model import _get_model
 from react_component_gen.state import AgentState
 from typing import TypedDict
 from langchain_core.messages import RemoveMessage
+from langsmith import Client  # Import the Client class
 
-gather_component_prompt = """
-    You are an expert React developer tasked with gathering requirements for creating React components. 
-    Your role is to extract clear, concise, and comprehensive information about the desired component from the user.
+# Initialize the LangSmith client
+client = Client()
 
-    Your primary objectives are:
-    1. Understand the component's purpose and functionality.
-    2. Identify the props the component should accept.
-    3. Determine the internal state requirements, if any.
-    4. Clarify any specific styling or layout needs.
-    5. Understand the component's interaction with its parent or child components.
-    6. Identify any performance considerations or optimization needs.
+# Pull the prompt from LangSmith
+gather_component_prompt = client.pull_prompt("gitmaxd/gather-component-prompt")
 
-    Engage with the user by asking focused, one-at-a-time questions. Prioritize gathering essential information for an MVP (Minimum Viable Product) version of the component. Avoid asking unnecessary or redundant questions.
-
-    Once you have a clear understanding of the component requirements, use the `DefineComponent` tool to formalize the requirements. The user can provide additional clarification or corrections after this point if needed.
-
-    Remember:
-    - React components should be modular, reusable, and follow the single responsibility principle.
-    - Consider accessibility (a11y) requirements in your gathering process.
-    - Keep in mind React best practices and common patterns while formulating your questions.
-
-    Begin the conversation by asking about the primary purpose of the React component."""
-
-
+# Define the DefineComponent class to structure the requirements
 class DefineComponent(TypedDict):
     requirements: str
 
-
+# Function to gather component requirements
 def gather_component_requirements(state: AgentState, config):
-    messages = [
-        {"role": "system", "content": gather_component_prompt}
-    ] + state['messages']
+    # Prepare the messages with the system role using the pulled prompt
+    messages = gather_component_prompt.format_messages(**{}) + state['messages']
+    
+    # Retrieve the model and bind tools
     model = _get_model(config, "openai", "gather_model").bind_tools([DefineComponent])
+    
+    # Invoke the model with the messages
     response = model.invoke(messages)
+    
+    # Process the response and handle tool calls
     if len(response.tool_calls) == 0:
         return {"messages": [response]}
     else:

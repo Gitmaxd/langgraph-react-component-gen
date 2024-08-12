@@ -34,7 +34,7 @@ def route_gather(state: AgentState) -> Literal["create_draft_component", END]:
     else:
         return END
 
-# Define a new graph
+
 workflow = StateGraph(AgentState, input=MessagesState, output=OutputState, config_schema=GraphConfig)
 workflow.add_node(create_draft_component)
 workflow.add_node(gather_component_requirements)
@@ -48,7 +48,6 @@ workflow.add_edge("create_draft_component", "check")
 workflow.add_conditional_edges("check", route_check)
 workflow.add_conditional_edges("critique", route_critique)
 
-# Add the final edge from documentation to END
 workflow.add_edge("documentation", END)
 
 graph = workflow.compile()

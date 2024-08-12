@@ -2,7 +2,9 @@
   "python_version": "3.11",
   "dockerfile_lines": [],
   "dependencies": [
-    "."
+    ".",
+    "langchain",
+    "langsmith"
   ],
   "graphs": {
     "React Developer": "./src/react_component_gen/agent.py:graph"
@@ -10,6 +12,7 @@
   "env": [
     "TAVILY_API_KEY",
     "OPENAI_API_KEY",
-    "ANTHROPIC_API_KEY"
+    "ANTHROPIC_API_KEY",
+    "LANGCHAIN_API_KEY"
   ]
 }
